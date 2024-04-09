@@ -1,0 +1,7 @@
+.reservations {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
