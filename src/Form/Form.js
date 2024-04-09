@@ -1,52 +1,57 @@
 import React, { useState } from 'react'
 import './Form.css'
 
-const Form = () => {
+const Form = ({addReservation}) => {
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
   const [guests, setGuests] = useState('')
 
-  const handleChange = (event, setState) => {
-    event.preventDefault()
-    setState(event.target.value)
-  }
   const handleSubmit = (event, setState) => {
     event.preventDefault()
     console.log(name, date, time, guests)
-    // store the new reservation in a variable
-    // call the addReservation function with the new reservation
-    // clear the form
-
+    const newReservation = {
+        id: Date.now(),
+        name: name,
+        date: date,
+        time: time,
+        number: guests,
+        }
+        addReservation(newReservation)
+        setName('')
+        setDate('')
+        setTime('')
+        setGuests('')
   }
+
   return (
-    <div className="form">
+    <form>
       <input
         type="text"
         placeholder="Name"
         value={name}
-        onChange={(event) => handleChange(event, setName)}
+        onChange={(event) => setName(event.target.value)}
       />
       <input
         type="text"
         placeholder="Date (mm/dd)"
         value={date}
-        onChange={(event) => handleChange(event, setDate)}
+        onChange={(event) => setDate(event.target.value)}
       />
       <input
         type="text"
         placeholder="Time"
         value={time}
-        onChange={(event) => handleChange(event, setTime)}
+        onChange={(event) => setTime(event.target.value)}
       />
       <input
         type="text"
         placeholder="Number of guests"
         value={guests}
-        onChange={(event) => handleChange(event, setGuests)}
+        onChange={(event) => setGuests(event.target.value)}
       />
       <button onClick={(event) => handleSubmit(event)}>Make Reservation</button>
-    </div>
+    </form>
   )
 }
 
