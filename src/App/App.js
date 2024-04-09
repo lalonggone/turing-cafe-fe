@@ -5,8 +5,7 @@ import Form from '../Form/Form'
 import { useState, useEffect } from 'react'
 
 function App() {
-  // need to GET reservations from the server
-  // write logic to delete a reservation
+
 
   const [reservations, setReservations] = useState([])
 

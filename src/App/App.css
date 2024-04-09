@@ -16,4 +16,14 @@
   color: teal;
   font-family: 'Pacifico', cursive;
   font-size: 50px;
+
+
+}
+
+button {
+  height: 30px;
+  border: 1px solid teal;
+  padding: 5px;
+  background-color: teal;
+  color: #fff;
 }
