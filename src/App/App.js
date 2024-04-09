@@ -16,7 +16,15 @@ function App() {
   }, [])
 
   const addReservation = (newReservation) => {
-    setReservations([...reservations, newReservation])
+    fetch('http://localhost:3001/api/v1/reservations', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newReservation),
+    })
+      .then((response) => response.json())
+      .then((data) => setReservations([...reservations, data]))
   }
 
   const deleteReservation = (id) => {
